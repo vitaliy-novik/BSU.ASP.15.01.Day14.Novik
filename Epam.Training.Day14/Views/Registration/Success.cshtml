@@ -1,0 +1,58 @@
+﻿@model Epam.Training.Day14.Models.Student
+
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Вы успешно зарегистрировались на тренинг</h2>
+
+<div>
+    <h4>@ViewBag.Cours.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.University.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("К списку курсов", "Index", "Home") |
+    @Html.ActionLink("Список студентов", "Index", "StudentsList", new { id = @ViewBag.Cours.Id }, new { })
+</p>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{
+    int count = ViewBag.Courses.Length;
+    int i = 0, j = 0;
+    while (i < count)
+    {
+        <div class="row">
+            @{j = 0;}
+            @while (i < count && j < 3)
+            {
+                <div class="col-md-4">
+                    <h2>@ViewBag.Courses[i].Name</h2>
+                    <p>@ViewBag.Courses[i].Description</p>
+                    <h4>@ViewBag.Courses[i].StartDateTime</h4>
+                    <div class="row">
+                        <p>@Html.ActionLink("Регистрация", "Register", "Registration", new { id = @ViewBag.Courses[i].Id }, new { @class = "btn btn-success" })</p>
+                        <p>@Html.ActionLink("Список студентов", "Index", "StudentsList", new { id = @ViewBag.Courses[i].Id }, new { @class = "btn btn-info" })</p>
+                    </div>
+                </div>
+                ++i;
+                ++j;
+            }
+        </div>      
+    }
+}
